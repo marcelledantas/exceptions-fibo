@@ -1,0 +1,48 @@
+
+Throwable class: super class of all errors and exceptions in Java
+
+ERROR:
+Error is an object that can be thrown by an app to indicate a serious problem that should not be caught.
+Errors often indicate an abnormal condition that should never occur.
+
+-Subset of throwable
+-Indicates serious problem in app
+-Should not be caught or handled
+-Unchecked throwable
+
+I/O Error:
+- Unrecoverable input/output
+- Serious issue with underlying file system
+
+VirtualMachineError:
+- Indicates running out of resource for Java Virtual Machine (JVM)
+- Internal error
+- Unknown error
+- Out of memory error
+- Stack Overflow Error: caused by running out of space in the stack in the JVM memory. The most common reason to this error occur is through recursion.
+
+EXCEPTION:
+Exceptions are another object that can be thrown and indicated conditions that an app might want to catch and handle.
+There are 2 subclasses to the exception object: checked exceptions and unchecked exceptions (or runtime exceptions)
+
+Checked exceptions:
+-Checked at compile time
+-Need to be defined in method header or handled
+-Recoverable
+-IOExceptions-> FileNotFoundException
+
+Unchecked exceptions
+-Also known as runtime exceptions
+-A short amount of text
+-NullPointerException (NPE)
+
+
+What developers need to know
+-How to handle defined library exceptions like IOException
+-Determine and handle custom exceptions from dependencies
+
+Note for security reasons, you may not want to share the exceptions message in the response to the user. Exceptions often have mote details on the underlying structure of the code
+and potentially sharing this with the hacker indicated a weakness in your code that they could leverage.
+Using the response status 404 Not Found instead of 500 Server Error, it makes easier for developers to know how to troubleshoot this error.
+e.g:
+return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not available. Please check request and try again " + e.getMessage());
