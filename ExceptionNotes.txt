@@ -34,8 +34,14 @@ Checked exceptions:
 Unchecked exceptions
 -Also known as runtime exceptions
 -A short amount of text
--NullPointerException (NPE)
+-NullPointerException (NPE): calling an action on a null object
+-NumberFormatException: attempting to convert a character like "b" to a number
+-ArithmeticException: invalid math operation like dividing by 0
 
+Unchecked exception: compiler does not check for these exception
+May not always be automatically recoverable
+Might not be easily anticipated until exception is triggered
+Don't have to be declared in the method header with the throws
 
 What developers need to know
 -How to handle defined library exceptions like IOException
